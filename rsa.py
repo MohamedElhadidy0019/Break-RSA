@@ -13,26 +13,6 @@ threading.stack_size(2**27)
 
 
 
-# is prime
-def is_prime(n):
-    if n == 2:
-        return True
-    if n % 2 == 0 or n <= 1:
-        return False
-    for i in range(3, int(n**0.5)+1, 2):
-        if n % i == 0:
-            return False
-    return True
-
-#powmod
-def powmod(a, b, c):
-    res = 1
-    while b > 0:
-        if b & 1:
-            res = (res * a) % c
-        b >>= 1
-        a = (a * a) % c
-    return res
 
 def ConvertToInt(message_str):
   res = 0
@@ -47,17 +27,6 @@ def ConvertToStr(n):
         n //= 256
     return res[::-1]
 
-def GCD(a, b):
-  if b == 0:
-    return a
-  return GCD(b, a % b)
-
-def ExtendedEuclid(a, b):
-    if b == 0:
-        return (1, 0)
-    (x, y) = ExtendedEuclid(b, a % b)
-    k = a // b
-    return (y, x - k * y)
 
 # this is an R2L recursive implementation that works for large integers
 def PowMod(a, n, mod): 
@@ -72,13 +41,6 @@ def PowMod(a, n, mod):
           return b
         else:
           return b * a % mod
-
-def InvertModulo(a, n):
-    (b, x) = ExtendedEuclid(a, n)
-    if b < 0:
-        b = (b % n + n) % n # we don't want -ve integers
-    return b
-
 
 
 def RSA(n_bits):
